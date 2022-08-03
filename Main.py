@@ -68,8 +68,7 @@ class Evaluate:
     Returns:
       True if the expression is valid, else returns False.
     """
-        exp_list = expression.split()
-        for i in exp_list:
+        for i in expression:
             if len(i) != 1:
                 return False
             elif i not in "0123456789+-*/^":
@@ -85,8 +84,7 @@ class Evaluate:
     Returns:
       The result of evaluated postfix expression.
     """
-        exp_list = expression.split()
-        for i in exp_list:
+        for i in expression:
             if i in "0123456789":
                 self.push(i)
             else:
@@ -106,10 +104,11 @@ class Evaluate:
         print(self.stack[0])
 
 
+# Do not change the following code
 postfix_expression = input()  # Read postfix expression
 tokens = postfix_expression.split()
 evaluate = Evaluate(len(tokens))
-if evaluate.validate_postfix_expression(postfix_expression):
-    print(evaluate.evaluate_postfix_expression(postfix_expression))
+if evaluate.validate_postfix_expression(tokens):
+    print(evaluate.evaluate_postfix_expression(tokens))
 else:
     print('Invalid postfix expression')
