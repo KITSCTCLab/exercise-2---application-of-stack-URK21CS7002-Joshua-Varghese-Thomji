@@ -24,10 +24,10 @@ class Evaluate:
     Returns:
       True if it is empty, else returns False.
     """
-      if self.top == -1:
-        return True
-      else:
-        return False
+    if self.top == -1:
+      return True
+    else:
+      return False
   
   def isFull(self):
     """
@@ -59,7 +59,7 @@ class Evaluate:
     Arguments:
       operand: The operand to be pushed.
     """
-    if not(self.isFull():
+    if not(self.isFull()):
            self.top += 1
            self.stack.append(operand)
            return
@@ -72,7 +72,14 @@ class Evaluate:
     Returns:
       True if the expression is valid, else returns False.
     """
-           
+    exp_list = expression.split()
+    for i in exp_list:
+      if len(i) != 1:
+        return False
+      elif i not in "0123456789+-*/^":
+        return False
+      else:
+        return True           
 
 
   def evaluate_postfix_expression(self, expression):
