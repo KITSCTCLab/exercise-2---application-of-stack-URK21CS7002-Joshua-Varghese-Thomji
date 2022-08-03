@@ -71,7 +71,9 @@ class Evaluate:
         for i in expression:
             if len(i) != 1:
                 return False
-            elif i not in "0123456789+-*/^":
+            elif not(i.isnumeric()):
+                return False
+            elif i not in "+-*/^":
                 return False
         else:
             return True
@@ -107,6 +109,7 @@ class Evaluate:
 # Do not change the following code
 postfix_expression = input()  # Read postfix expression
 tokens = postfix_expression.split()
+print(tokens)
 evaluate = Evaluate(len(tokens))
 if evaluate.validate_postfix_expression(tokens):
     print(evaluate.evaluate_postfix_expression(tokens))
