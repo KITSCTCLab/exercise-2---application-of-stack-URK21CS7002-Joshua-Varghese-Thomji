@@ -24,7 +24,21 @@ class Evaluate:
     Returns:
       True if it is empty, else returns False.
     """
-      # Write your code here
+      if self.top == -1:
+        return True
+      else:
+        return False
+  
+  def isFull(self):
+    """
+    Check whether the stack is full.
+    Returns:
+      True if it is full, else returns False.
+    """
+    if self.top == self.size - 1:
+      return True
+    else:
+      return False
 
 
   def pop(self):
@@ -33,7 +47,10 @@ class Evaluate:
     Returns:
       The data which is popped out if the stack is not empty.
     """
-    # Write your code here
+    if not(self.isEmpty()):
+      pop = self.stack.pop()
+      self.top -= 1
+      return self.stack[pop]
 
 
   def push(self, operand):
@@ -42,10 +59,12 @@ class Evaluate:
     Arguments:
       operand: The operand to be pushed.
     """
-    # Write your code here
+    if not(self.isFull():
+           self.top += 1
+           self.stack.append(operand)
+           return
 
-
-  def validate_postfix_expression(self, expression):
+  def validate_postfix_expression(self, expression):           
     """
     Check whether the expression is a valid postfix expression.
     Arguments:
@@ -53,7 +72,7 @@ class Evaluate:
     Returns:
       True if the expression is valid, else returns False.
     """
-    # Write your code here
+           
 
 
   def evaluate_postfix_expression(self, expression):
