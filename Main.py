@@ -73,8 +73,8 @@ class Evaluate:
                 return False
             elif i not in "0123456789+-*/^":
                 return False
-            else:
-                return True
+        else:
+            return True
 
     def evaluate_postfix_expression(self, expression):
         """
