@@ -71,8 +71,11 @@ class Evaluate:
         for i in expression:
             if len(i) != 1:
                 return False
-            elif (not(i.isnumeric())) or i not in "+-*/^":
-                return False
+            elif i.isnumeric() == False:
+                if i in "+-/*^":
+                    return True
+                else:
+                    return False
             else:
                 return True
 
