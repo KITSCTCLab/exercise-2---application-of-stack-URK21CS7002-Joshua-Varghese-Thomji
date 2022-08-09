@@ -104,7 +104,7 @@ class Evaluate:
         if len(self.stack) > 1:
             return "Invalid Expression"
         else:
-            return self.stack[0]
+            return int(self.stack[0])
 
 
 # Do not change the following code
