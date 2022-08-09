@@ -1,10 +1,10 @@
 class Evaluate:
     """This class validates and evaluate postfix expression.
-  Attributes:
-      top: An integer which denotes the index of the element at the top of the stack currently.
-      size_of_stack: An integer which represents the size of stack.
-      stack: A List which acts as a Stack.
-  """
+    Attributes:
+        top: An integer which denotes the index of the element at the top of the stack currently.
+        size_of_stack: An integer which represents the size of stack.
+        stack: A List which acts as a Stack.
+    """
 
     # Write your code here
 
@@ -69,9 +69,7 @@ class Evaluate:
       True if the expression is valid, else returns False.
     """
         for i in expression:
-            if len(i) != 1:
-                return False
-            elif i.isnumeric() == False:
+            if i.isnumeric() == False:
                 if i in "+-/*^":
                     return True
                 else:
@@ -88,7 +86,7 @@ class Evaluate:
       The result of evaluated postfix expression.
     """
         for i in expression:
-            if i in "0123456789":
+            if i.isnumeric():
                 self.push(i)
             else:
                 a = int(self.pop())
@@ -103,8 +101,10 @@ class Evaluate:
                     self.push(b / a)
                 elif i == "^":
                     self.push(b ** a)
-
-        print(self.stack[0])
+        if len(self.stack) > 1:
+            return "Invalid Expression"
+        else:
+            return self.stack[0]
 
 
 # Do not change the following code
